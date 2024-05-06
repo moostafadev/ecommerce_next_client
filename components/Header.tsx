@@ -5,6 +5,7 @@ import { ModeToggle } from "./DarkModeToggle";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const Header = () => {
   const [display, setDisplay] = useState<boolean>(false);
@@ -22,7 +23,7 @@ const Header = () => {
             {navData.map((item: string, idx: number) => (
               <li key={idx}>
                 <Link
-                  href={`${item.toLowerCase()}`}
+                  href={`/`}
                   className="block px-2 font-bold hover:underline"
                 >
                   {item}
@@ -32,10 +33,18 @@ const Header = () => {
           </ul>
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
-          <Button className="font-bold p-[6px] sm:p-2">
-            <Link href={"/login"}>تسجيل الدخول</Link>
-          </Button>
           <ModeToggle />
+          <SignedIn>
+            <UserButton
+              userProfileMode="navigation"
+              userProfileUrl="/user-profile"
+            />
+          </SignedIn>
+          <SignedOut>
+            <Button className="font-bold p-[6px] sm:p-2">
+              <Link href={"/sign-in"}>تسجيل الدخول</Link>
+            </Button>
+          </SignedOut>
           <Button
             className={`md:hidden p-[6px] sm:p-2`}
             variant={"ghost"}
