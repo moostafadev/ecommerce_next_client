@@ -1,39 +1,25 @@
-"use client";
-
-import { getProjectAction } from "@/actions/projects.action";
-import Image from "next/image";
-import React, { useState } from "react";
+import { IProject } from "@/interfaces";
+import React from "react";
+import ProjectCard from "./ProjectCard";
 
 interface IProp {
-  projects: {
-    id: string;
-    title: string;
-    body: string | null;
-    image: string | null;
-  }[];
+  title: string;
+  projects: IProject[];
 }
 
-const ProductsSection = ({ projects }: IProp) => {
+const ProductsSection = ({ projects, title }: IProp) => {
   return (
-    <div className="container">
-      <h1 className="text-center font-extrabold text-2xl mb-8">
-        أشهر الكورسات
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2">
+    <div className="container py-8">
+      <h1 className="text-center font-extrabold text-2xl mb-8">{title}</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4">
         {projects?.map((project) => (
-          <div className="" key={project?.id}>
-            <Image
-              alt="image"
-              src={project?.image as string}
-              width={1000}
-              height={100}
-              className="rounded-md"
-            />
-            <div>
-              <h2 className="text-xl font-bold">{project.title}</h2>
-              <p>{project.body}</p>
-            </div>
-          </div>
+          <ProjectCard
+            key={project?.id}
+            id={project?.id}
+            title={project?.title}
+            body={project?.body}
+            image={project?.image}
+          />
         ))}
       </div>
     </div>

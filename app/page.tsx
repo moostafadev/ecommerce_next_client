@@ -1,16 +1,15 @@
-import {
-  createProjectAction,
-  getProjectAction,
-} from "@/actions/projects.action";
+import { getFilteredProjectAction } from "@/actions/projects.action";
 import Hero from "@/components/Hero";
 import ProductsSection from "@/components/ProductsSection";
 
 export default async function Home() {
-  const projects = await getProjectAction();
+  const projectsPopular = await getFilteredProjectAction("populare");
+  const projectsMostSales = await getFilteredProjectAction("mostSales");
   return (
     <main>
       <Hero />
-      <ProductsSection projects={projects} />
+      <ProductsSection title="أشهر الكورسات" projects={projectsPopular} />
+      <ProductsSection title="ألاكثر مبيعاً" projects={projectsMostSales} />
     </main>
   );
 }

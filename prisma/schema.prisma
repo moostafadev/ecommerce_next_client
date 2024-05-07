@@ -7,9 +7,15 @@ generator client {
   provider = "prisma-client-js"
 }
 
+enum Category {
+  populare
+  mostSales
+}
+
 model Project {
   id       String    @id @default(auto()) @map("_id") @db.ObjectId
   title    String
   body     String?
   image String?
+  type Category?
 }
