@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Course | Coursat Academy",
-  description: "One course page",
+  title: "Admin | Coursat Academy",
+  description: "Admin page",
 };
 
 export default function RootLayout({
@@ -10,9 +10,5 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <>
-      <div className="container">{children}</div>
-    </>
-  );
+  return <div className="container">{children}</div>;
 }

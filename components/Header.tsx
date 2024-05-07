@@ -5,7 +5,7 @@ import { ModeToggle } from "./DarkModeToggle";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 
 interface INavData {
   name: string;
@@ -13,6 +13,7 @@ interface INavData {
 }
 
 const Header = () => {
+  const { user } = useUser();
   const [display, setDisplay] = useState<boolean>(false);
   const navData: INavData[] = [
     {
@@ -56,7 +57,11 @@ const Header = () => {
           </ul>
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
-          <ModeToggle />
+          {user?.publicMetadata.role === "admin" ? (
+            <Button className="font-bold p-[6px] sm:p-2">
+              <Link href={"admin/dashboard"}>لوحة التحكم</Link>
+            </Button>
+          ) : null}
           <SignedIn>
             <UserButton
               userProfileMode="navigation"
@@ -68,6 +73,7 @@ const Header = () => {
               <Link href={{ pathname: "/sign-in" }}>تسجيل الدخول</Link>
             </Button>
           </SignedOut>
+          <ModeToggle />
           <Button
             className={`md:hidden p-[6px] sm:p-2`}
             variant={"ghost"}

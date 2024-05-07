@@ -3,8 +3,8 @@ import Header from "@/components/Header";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Courses | Coursat Academy",
-  description: "Courses page",
+  title: "Login | Coursat Academy",
+  description: "Login page",
 };
 
 export default function RootLayout({
