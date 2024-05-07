@@ -46,7 +46,7 @@ const Header = () => {
             {navData.map((item: INavData, idx: number) => (
               <li key={idx}>
                 <Link
-                  href={item.link}
+                  href={{ pathname: item.link }}
                   className="block px-2 font-bold hover:underline"
                 >
                   {item.name}
@@ -65,7 +65,7 @@ const Header = () => {
           </SignedIn>
           <SignedOut>
             <Button className="font-bold p-[6px] sm:p-2">
-              <Link href={"/sign-in"}>تسجيل الدخول</Link>
+              <Link href={{ pathname: "/sign-in" }}>تسجيل الدخول</Link>
             </Button>
           </SignedOut>
           <Button
@@ -86,7 +86,7 @@ const Header = () => {
           {navData.map((item: INavData, idx: number) => (
             <li key={idx}>
               <Link
-                href={item.link}
+                href={{ pathname: item.link }}
                 className="block p-4 text-xl font-bold hover:underline duration-300"
                 onClick={() => setDisplay(false)}
               >
