@@ -1,11 +1,10 @@
 import { getOneProjectAction } from "@/actions/projects.action";
 import { BreadcrumbDemo } from "@/components/Breadcrumb";
 import { IProject } from "@/interfaces";
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Image from "next/image";
 import React from "react";
 
-const page = async ({ params }: Params) => {
+const page = async (params: { id: string }) => {
   const data: IProject[] = await getOneProjectAction(params.id);
   return (
     <div className="py-6">
