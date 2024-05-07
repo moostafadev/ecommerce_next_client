@@ -1,6 +1,7 @@
 import { getProjectAction } from "@/actions/projects.action";
 import { BreadcrumbDemo } from "@/components/Breadcrumb";
 import ProjectCard from "@/components/ProjectCard";
+import { IProject } from "@/interfaces";
 import React from "react";
 
 const page = async () => {
@@ -19,7 +20,7 @@ const page = async () => {
       </div>
       <h1 className="text-center font-extrabold text-2xl mb-8">الكورسات</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4">
-        {projects?.map((project) => (
+        {projects?.map((project: IProject) => (
           <ProjectCard
             key={project?.id}
             id={project?.id}
