@@ -33,7 +33,7 @@ export function BreadcrumbDemo({ links }: ILink) {
                 <BreadcrumbPage>{li.name}</BreadcrumbPage>
               ) : (
                 <BreadcrumbLink asChild>
-                  <Link href={li.link}>{li.name}</Link>
+                  <Link href={{ pathname: li.link }}>{li.name}</Link>
                 </BreadcrumbLink>
               )}
             </BreadcrumbItem>
