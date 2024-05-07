@@ -4,7 +4,12 @@ import { IProject } from "@/interfaces";
 import Image from "next/image";
 import React from "react";
 
-const page = async (params: { id: string }) => {
+interface PageProps {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+const page = async ({ params, searchParams }: PageProps) => {
   const data: IProject[] = await getOneProjectAction(params.id as string);
   return (
     <div className="py-6">
