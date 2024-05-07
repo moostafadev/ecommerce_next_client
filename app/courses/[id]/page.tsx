@@ -5,7 +5,7 @@ import Image from "next/image";
 import React from "react";
 
 const page = async (params: { id: string }) => {
-  const data: IProject[] = await getOneProjectAction(params.id);
+  const data: IProject[] = await getOneProjectAction(params.id as string);
   return (
     <div className="py-6">
       <div className="mb-4">
