@@ -1,3 +1,5 @@
+"use server";
+
 import { PrismaClient } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 
@@ -36,4 +38,13 @@ export const getOneProjectAction = async (id: string) => {
       id,
     },
   });
+};
+
+export const deleteOneProjectAction = async ({ id }: { id: string }) => {
+  await prisma.project.delete({
+    where: {
+      id,
+    },
+  });
+  revalidatePath("/admin/dashboard/courses");
 };

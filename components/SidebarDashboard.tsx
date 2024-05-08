@@ -21,7 +21,7 @@ const SidebarDashboard = ({ Sidestate, setDisplay }: IProp) => {
     <aside
       className={`w-full md:w-[300px] h-[calc(100%-64px)] fixed bottom-0 ${
         Sidestate ? "right-0" : "right-[-100%]"
-      } md:right-0 border-l shadow-sm border-neutral-500 dark:border-neutral-800 backdrop-blur-sm duration-300 md:bg-zinc-100 md:dark:bg-zinc-900`}
+      } md:right-0 border-l shadow-sm border-neutral-500 dark:border-neutral-800 backdrop-blur-sm duration-300 md:bg-zinc-100 md:dark:bg-zinc-900 z-10`}
     >
       <ul className="py-4 pr-4">
         <li>
