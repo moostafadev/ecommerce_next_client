@@ -40,8 +40,7 @@ const SidebarDashboard = ({ Sidestate, setDisplay }: IProp) => {
           <Link
             href={"/admin/dashboard/courses"}
             className={`${linkStyle} ${
-              pathname === "/admin/dashboard/courses" ||
-              pathname === "/admin/dashboard/courses/add"
+              pathname.startsWith("/admin/dashboard/courses/")
                 ? activeClassName
                 : ""
             }`}
