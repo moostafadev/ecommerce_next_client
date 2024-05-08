@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Admin Courses | Coursat Academy",
+  title: "Admin Add Course | Coursat Academy",
   description: "Admin courses page",
 };
 

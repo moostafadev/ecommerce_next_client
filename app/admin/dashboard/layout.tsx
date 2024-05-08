@@ -20,8 +20,7 @@ export default function RootLayout({
   return (
     <div>
       <HeaderDashboard />
-
-      <div className="px-4 md:pr-[320px] pt-4">{children}</div>
+      <div className="px-4 md:pr-[320px] py-4 mt-16">{children}</div>
     </div>
   );
 }

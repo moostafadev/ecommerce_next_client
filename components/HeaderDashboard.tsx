@@ -12,8 +12,8 @@ const HeaderDashboard = () => {
   const [display, setDisplay] = useState<boolean>(false);
   return (
     <>
-      <header className="relative flex items-center justify-center h-16 border-b shadow-sm border-neutral-500 dark:border-neutral-800">
-        <div className="container flex items-center justify-between gap-2">
+      <header className="fixed top-0 left-0 flex items-center justify-center h-16 w-full border-b shadow-sm border-neutral-500 dark:border-neutral-800 bg-white dark:bg-zinc-950 z-10">
+        <div className="w-full px-4 flex items-center justify-between gap-2">
           <div className="flex items-center gap-8">
             <Link href="/" onClick={() => setDisplay(false)}>
               <h1 className="text-lg sm:text-2xl font-bold sm:font-extrabold leading-none">
