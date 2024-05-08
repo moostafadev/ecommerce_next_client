@@ -1,15 +1,15 @@
-import { redirect } from "next/navigation";
-import { checkRole } from "@/utils/roles";
+import { currentUser } from "@clerk/nextjs/server";
 
-export default function AdminDashboard() {
-  if (!checkRole("admin")) {
-    redirect("/");
-  }
-
+export default async function AdminDashboard() {
+  const user = await currentUser();
   return (
-    <>
-      <h1>This is the admin dashboard</h1>
-      <p>This page is restricted to users with the admin role.</p>
-    </>
+    <div>
+      <h1 className="text-2xl font-bold mb-2">
+        أهلا بيك أ/ {user?.firstName} 🫡
+      </h1>
+      <p className="text-lg font-semibold">
+        أنت ألان تسطيع فعل ما تريده في اكاديمية كورسات.
+      </p>
+    </div>
   );
 }

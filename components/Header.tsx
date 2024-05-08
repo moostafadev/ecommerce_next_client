@@ -58,7 +58,7 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
           {user?.publicMetadata.role === "admin" ? (
-            <Button className="font-bold p-[6px] sm:p-2">
+            <Button className="font-bold p-[6px] sm:p-2 sm:ml-4">
               <Link href={"admin/dashboard"}>لوحة التحكم</Link>
             </Button>
           ) : null}
@@ -69,7 +69,7 @@ const Header = () => {
             />
           </SignedIn>
           <SignedOut>
-            <Button className="font-bold p-[6px] sm:p-2">
+            <Button className="font-bold p-[6px] sm:p-2 sm:ml-4">
               <Link href={{ pathname: "/sign-in" }}>تسجيل الدخول</Link>
             </Button>
           </SignedOut>

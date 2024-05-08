@@ -1,4 +1,7 @@
+import HeaderDashboard from "@/components/HeaderDashboard";
+import { checkRole } from "@/utils/roles";
 import { Metadata } from "next";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "Admin | Coursat Academy",
@@ -10,5 +13,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div className="container">{children}</div>;
+  if (!checkRole("admin")) {
+    redirect("/");
+  }
+
+  return (
+    <div>
+      <HeaderDashboard />
+
+      <div className="px-4 md:pr-[320px] pt-4">{children}</div>
+    </div>
+  );
 }
