@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import { Eye, Pen, Trash } from "lucide-react";
 import { deleteOneProjectAction } from "@/actions/projects.action";
 import Spinner from "./Spinner";
+import { Types } from "@/types/globals";
 
 const CoursesTableActions = ({ id }: { id: string }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);

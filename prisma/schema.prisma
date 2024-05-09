@@ -17,5 +17,5 @@ model Project {
   title    String
   body     String?
   image String?
-  type Category?
+  type Category @default(populare)
 }
