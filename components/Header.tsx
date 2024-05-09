@@ -58,9 +58,11 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-1 sm:gap-2">
           {user?.publicMetadata.role === "admin" ? (
-            <Button className="font-bold p-[6px] sm:p-2 sm:ml-4">
-              <Link href={"admin/dashboard"}>لوحة التحكم</Link>
-            </Button>
+            <Link href={"admin/dashboard"}>
+              <Button className="font-bold p-[6px] sm:p-2 sm:ml-4">
+                لوحة التحكم
+              </Button>
+            </Link>
           ) : null}
           <SignedIn>
             <UserButton

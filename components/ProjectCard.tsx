@@ -11,7 +11,11 @@ const ProjectCard = ({ id, title, body, image }: IProject) => {
     >
       <Image
         alt="image"
-        src={image as string}
+        src={
+          image
+            ? image
+            : "https://res.cloudinary.com/dvtmqtcyl/image/upload/v1712000980/No_Products_55d29f8b32.jpg"
+        }
         width={1000}
         height={100}
         className="border-b-2 border-black dark:border-white"

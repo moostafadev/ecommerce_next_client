@@ -31,7 +31,11 @@ const page = async ({ params, searchParams }: PageProps) => {
         <h1 className="text-2xl font-bold self-start">{data[0]?.title}</h1>
         <div className="flex flex-col gap-3">
           <Image
-            src={data[0].image as string}
+            src={
+              data[0].image
+                ? data[0].image
+                : "https://res.cloudinary.com/dvtmqtcyl/image/upload/v1712000980/No_Products_55d29f8b32.jpg"
+            }
             alt="image"
             width={1000}
             height={1000}

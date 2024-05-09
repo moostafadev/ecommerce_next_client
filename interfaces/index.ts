@@ -1,5 +1,5 @@
 export interface IProject {
-  id: string;
+  id?: string;
   title: string;
   body?: string | null;
   image?: string | null;

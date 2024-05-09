@@ -11,14 +11,14 @@ export const createProjectAction = async ({
   title,
   body,
   type,
-}: CourseValues) => {
+  image,
+}: IProject) => {
   await prisma.project.create({
     data: {
       title,
       body,
       type,
-      image:
-        "https://res.cloudinary.com/dvtmqtcyl/image/upload/v1714241351/Screenshot_2024-04-27_210834_pytjyo.png",
+      image,
     },
   });
   revalidatePath("/admin/dashboard/courses");
@@ -29,6 +29,7 @@ export const editProjectAction = async ({
   title,
   body,
   type,
+  image,
 }: IProject) => {
   await prisma.project.update({
     where: {
@@ -38,6 +39,7 @@ export const editProjectAction = async ({
       title,
       body,
       type,
+      image,
     },
   });
   revalidatePath("/admin/dashboard/courses");

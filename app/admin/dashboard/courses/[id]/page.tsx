@@ -22,6 +22,7 @@ const page = async ({ params, searchParams }: PageProps) => {
             title={data[0].title}
             body={data[0].body}
             type={data[0].type}
+            image={data[0].image}
           />
         }
       </div>
