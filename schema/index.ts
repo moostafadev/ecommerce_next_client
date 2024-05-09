@@ -6,11 +6,7 @@ export const CourseSchema = z.object({
     .min(1, { message: "يجب ادخال عنوان مناسب." })
     .max(30, { message: "العنوان لا يصلح لانه أكثر من 30 حرفاً" }),
   body: z.string().optional().nullable(),
-  type: z
-    .enum(["mostSales", "populare"])
-    .default("populare")
-    .optional()
-    .nullable(),
+  type: z.enum(["mostSales", "populare"]).default("populare").optional(),
 });
 
 export type CourseValues = z.infer<typeof CourseSchema>;

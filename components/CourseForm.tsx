@@ -33,9 +33,7 @@ import {
 import { useRouter } from "next/navigation";
 import { Types } from "@/types/globals";
 import {
-  CldUploadButton,
   CldUploadWidget,
-  CloudinaryUploadWidgetInfo,
   CloudinaryUploadWidgetResults,
 } from "next-cloudinary";
 import Image from "next/image";
@@ -51,7 +49,7 @@ const CourseForm = ({
   id?: string;
   title?: string;
   body?: string | null;
-  type?: Types | null;
+  type?: Types;
   image?: string | null;
   pattern: "add" | "edit";
 }) => {
