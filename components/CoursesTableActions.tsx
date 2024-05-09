@@ -8,7 +8,7 @@ import { deleteOneProjectAction } from "@/actions/projects.action";
 import Spinner from "./Spinner";
 import { Types } from "@/types/globals";
 
-const CoursesTableActions = ({ id }: { id: string }) => {
+const CoursesTableActions = ({ id }: { id?: string }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   return (
     <>
@@ -26,7 +26,7 @@ const CoursesTableActions = ({ id }: { id: string }) => {
         className="h-[30px] px-2 bg-rose-600 text-white hover:bg-rose-500"
         onClick={async () => {
           setIsLoading(true);
-          await deleteOneProjectAction({ id });
+          if (id) await deleteOneProjectAction({ id });
           setIsLoading(false);
         }}
         disabled={isLoading}
